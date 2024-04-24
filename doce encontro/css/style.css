@@ -1,0 +1,21 @@
+body{background-color: rgb(76, 117, 69)}
+
+#logo{text-align: center;
+}
+.center{
+    margin-top: 1px;
+    text-align: center;
+    color: rgb(65,37,13);
+    font-size: 40px;
+}
+#botao{
+    font-size: 20px;
+    color: antiquewhite;
+    margin-bottom: 20px;
+   text-align: center;
+    background-color: rgb(65,37,13);
+    padding: 15px;
+    border-radius: 20px;
+
+}
+
