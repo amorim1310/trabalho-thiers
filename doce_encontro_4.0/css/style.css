@@ -1,0 +1,173 @@
+body { 
+    background-image: url('imagens/plano_de_fundo_2.jpg');
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+#logo{text-align: center;
+}
+.center{
+    margin-top: 1px;
+    text-align: center;
+    color: rgb(65,37,13);
+    font-size: 40px;
+}
+
+#botões {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+#botao{
+    font-size: 20px;
+    color: rgb(65,37,13);
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: antiquewhite;
+    padding: 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 250px;
+    text-decoration: none;
+}
+
+#subtitulo{
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+#cupons {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#cupom{
+    text-decoration: none;
+    width: 250px;
+    cursor: pointer;
+    color: rgb(203, 216, 200); 
+    margin-bottom: 20px;
+    background-image: url(/css/imagens/cupom\ 3.png);
+    background-size:auto;
+    background-position: center;
+    border-radius: 15px;
+}
+.titulo {
+    display: block;
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    text-align: left;
+    padding-left: 55px;
+
+
+    
+}
+#cupom1{
+    text-decoration: none;
+    width: 250px;
+    cursor: pointer;
+    color: rgb(203, 216, 200); 
+    margin-bottom: 20px;
+    background-image: url(/css/imagens/cupom\ 3.png);
+    background-size:auto;
+    background-position: center;
+    border-radius: 15px;
+}
+.titulo {
+    display: block;
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    text-align: left;
+    padding-left: 55px;
+
+
+}
+#cupom2{
+    text-decoration: none;
+    width: 250px;
+    cursor: pointer;
+    color: rgb(203, 216, 200); 
+    margin-bottom: 20px;
+    background-image: url(/css/imagens/cupom\ 3.png);
+    background-size:auto;
+    background-position: center;
+    border-radius: 15px;
+}
+.titulo {
+    display: block;
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    text-align: left;
+    padding-left: 55px;
+
+}
+
+#cupom3{
+    text-decoration: none;
+    width: 250px;
+    cursor: pointer;
+    color: rgb(203, 216, 200); 
+    margin-bottom: 20px;
+    background-image: url(/css/imagens/cupom\ 3.png);
+    background-size:auto;
+    background-position: center;
+    border-radius: 15px;
+}
+.titulo {
+    display: block;
+    font-size: 24px; 
+    margin-bottom: 10px; 
+    text-align: left;
+    padding-left: 55px;
+
+
+    
+}
+#cupom:hover{
+    background-color: rgb(114, 69, 30);
+    transform: scale(1.04); 
+}
+#textocupom{
+    font-size: 15px;
+    color:rgb(216, 200, 200);
+    text-align: left;
+}
+#quantidadecupons{
+    text-align: right;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    color: rgb(203, 216, 200);
+    font-size: 10px;
+    
+}
+#formularios{
+    color: white;
+    text-align: center;
+}
+#voltar{
+    
+    text-decoration: none;
+    width: 45px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    color: rgb(164, 170, 163); 
+    margin-bottom: 20px;
+    background-color: rgb(114, 69, 30);
+    bottom: 20px; /* Distância da borda inferior */
+    right: 0px; /* Distância da borda direita */
+    z-index: 1000; /* Garante que o botão esteja acima de outros elementos */
+
+    
+    
+
+
+
+}
+
