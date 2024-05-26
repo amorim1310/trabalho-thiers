@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Remoção de Cupom</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+    <div id="logo"><img src="../../css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+    <h1 class="center">Remover o cupom?</h1>
+    
+    <div id="botões">
+        <a id="botao" href="#" onclick="confirmarRemocao()">Sim</a>
+        <a id="botao" href="/usuarios/administradores/rem.html">Não</a>
+    </div>
+
+    <script>
+        
+        function confirmarRemocao() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var index = urlParams.get('index');
+
+            var cupons = JSON.parse(localStorage.getItem('cupons')) || [];
+            cupons.splice(index, 1);
+
+            localStorage.setItem('cupons', JSON.stringify(cupons));
+            alert('Cupom removido com sucesso!');
+            location.href = "confirmado.html"; 
+        }
+    </script>
+</body>
+</html>

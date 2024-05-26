@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Cupom</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <h1 style="margin-top: 40px" class="center">Detalhes do cupom <span id="titulocupom"></span></h1>
+
+    <div id="subtitulo"> <p>Obrigado por comprar conosco!</p> </div>
+
+    <p style="color: rgb(65,37,13); text-align: center; font-size: 20px;">Descrição:</p>
+    <p id="descricao" style="color: rgb(65,37,13); text-align: center;"></p>
+    <p style="color: rgb(65,37,13); text-align: center; font-size: 20px;">Quantidade:</p>
+    <p id="quantidade" style="color: rgb(65,37,13); text-align: center;"></p>
+    
+    <a id="voltar" href="selecionarcupom.html">Voltar</a>
+
+    <div id="logo"><img  src="/css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cupomId = window.location.search.split('=')[1];
+            const cupons = JSON.parse(localStorage.getItem('cupons')) || [];
+
+            const cupomSelecionado = cupons.find(cupom => cupom.id === cupomId);
+
+            if (cupomSelecionado) {
+                document.getElementById('titulocupom').textContent = cupomSelecionado.titulo;
+                document.getElementById('descricao').textContent = cupomSelecionado.descricao;
+                document.getElementById('quantidade').textContent = cupomSelecionado.quantidade;
+            } else {
+                console.error('Cupom não encontrado!');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <h1 style="margin-top: 40px" class="center">Obrigado pela visita a nossa cafeteria!</h1>
+
+    <div id="subtitulo"><p>Os cupons disponíveis hoje são:</p></div>
+
+    <div id="cupons">
+    
+    </div>
+    <a id="voltar" href="../../index.html">Sair</a>
+
+    <div id="logo"><img src="/css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+
+    <script>
+        
+        function carregarCupons() {
+            var cupons = JSON.parse(localStorage.getItem('cupons')) || [];
+            var cuponsDiv = document.getElementById('cupons');
+            cuponsDiv.innerHTML = '';
+
+            cupons.forEach((cupom, index) => {
+                var cupomElement = `
+                    <a id="cupom${index}" href="informcupom.html" style="background-image: url('../../css/imagens/${cupom.imgcupom}');">
+                        <span class="titulo">${cupom.titulo}</span>
+                        <p id="textocupom">${cupom.descricao}</p>
+                        <p id="quantidadecupons">${cupom.quantidade}</p>
+                    </a>
+                `;
+                cuponsDiv.innerHTML += cupomElement;
+            });
+        }
+
+       
+        document.addEventListener('DOMContentLoaded', carregarCupons);
+    </script>
+</body>
+</html>

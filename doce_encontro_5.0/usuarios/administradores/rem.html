@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover Cupom</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+    <div id="subtitulo"><p>Selecione um cupom para remover:</p></div>
+
+    <div id="cupons">
+       
+    </div>
+    <a id="voltar" href="addremcupom.html">Voltar</a>
+
+    <div id="logo"><img src="/css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+
+    <script>
+        
+        function carregarCupons() {
+            var cupons = JSON.parse(localStorage.getItem('cupons')) || [];
+            var cuponsDiv = document.getElementById('cupons');
+            cuponsDiv.innerHTML = '';
+
+            cupons.forEach((cupom, index) => {
+                var cupomElement = `
+                    <a id="cupom${index}" href="confirmacao.html?index=${index}">
+                        <span class="titulo">${cupom.titulo}</span>
+                        <p id="textocupom">${cupom.descricao}</p>
+                        <p id="quantidadecupons">${cupom.quantidade}</p>
+                    </a>
+                `;
+                cuponsDiv.innerHTML += cupomElement;
+            });
+        }
+
+       
+        document.addEventListener('DOMContentLoaded', carregarCupons);
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Cupom</title>
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+    <div id="logo"><img src="../../css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+    <a id="voltar" href="addremcupom.html">Voltar</a>
+    
+    <div id="formularios">
+        <h2>Adicionar Cupom</h2>
+        <form id="cupomForm">
+            <label>Digite o título do cupom: </label>
+            <input type="text" id="titulo" placeholder="Título" required><br><br>
+            <label>Digite a descrição do cupom (preço e quantidade): </label>
+            <input type="text" id="descricao" placeholder="Descrição" required><br><br>
+            <label>Especifique a quantidade de cupons disponíveis: </label>
+            <input type="number" id="quantidade" placeholder="Quantidade" required><br><br>
+            <label>Escolha uma imagem de fundo: </label><br>
+            <select id="imgcupom" name="imgcupom" onchange="mostrarImagem()">
+                <option selected disabled value="">Selecione uma imagem</option>
+                <option value="cupom1.png">cupom1</option>
+                <option value="cupom2.png">cupom2</option>
+                <option value="cupom3.png">cupom3</option>
+                <option value="cupom4.png">cupom4</option>
+                <option value="cupom5.png">cupom5</option>
+                <option value="cupom6.png">cupom6</option>
+                <option value="cupom7.png">cupom7</option>
+                <option value="cupom8.png">cupom8</option>
+                <option value="cupom9.png">cupom9</option>
+            </select><br><br>
+            <div id="preview">
+                <img id="imgPreview" src="" alt="Pré-visualização" style="display:none; width:200px; height:auto;">
+            </div>
+            <input type="submit" value="Adicionar Cupom">
+        </form>
+    </div>
+
+    <script>
+        function mostrarImagem() {
+            var imgSelect = document.getElementById('imgcupom');
+            var imgPreview = document.getElementById('imgPreview');
+            var selectedValue = imgSelect.value;
+            
+            if (selectedValue) {
+                imgPreview.src = '../../css/imagens/' + selectedValue;
+                imgPreview.style.display = 'block';
+            } else {
+                imgPreview.style.display = 'none';
+            }
+        }
+
+        document.getElementById('cupomForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var titulo = document.getElementById('titulo').value;
+            var descricao = document.getElementById('descricao').value;
+            var quantidade = document.getElementById('quantidade').value;
+            var imgcupom = document.getElementById('imgcupom').value;
+
+            var cupons = JSON.parse(localStorage.getItem('cupons')) || [];
+            cupons.push({ titulo: titulo, descricao: descricao, quantidade: quantidade, imgcupom: imgcupom });
+
+            localStorage.setItem('cupons', JSON.stringify(cupons));
+            alert('Cupom adicionado com sucesso!');
+            location.href = "addremcupom.html";
+        });
+    </script>
+</body>
+</html>

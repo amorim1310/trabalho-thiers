@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+    <h1 class="center">Bem vindo(a), por favor faça o login:</h1>
+
+    <div id="formularios">
+        <form id="registroForm">
+            <label>Digite seu nome: </label>
+            <input type="text" id="nome" placeholder="seu nome" required><br><br>
+            <label>Digite seu email: </label>
+            <input type="email" id="email" placeholder="email" required><br><br>
+            <label>Confirme seu email: </label>
+            <input type="email" id="confirmaEmail" placeholder="email" required><br><br>
+            <label>Digite sua senha: </label>
+            <input type="password" id="senha" placeholder="senha" required><br><br>
+            <label>Confirme sua senha: </label>
+            <input type="password" id="confirmaSenha" placeholder="senha" required><br><br>
+            <input type="submit" value="enviar">
+        </form>
+    </div>
+    <a id="voltar" href="../usuarios/login.html">Voltar</a>
+    <div id="logo"><img src="/css/imagens/logodoceencontro.png" width="200" alt="logo"></div>
+
+    <script>
+        document.getElementById('registroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var confirmaEmail = document.getElementById('confirmaEmail').value;
+            var senha = document.getElementById('senha').value;
+            var confirmaSenha = document.getElementById('confirmaSenha').value;
+
+            
+            if (email !== confirmaEmail) {
+                alert('Os emails não coincidem.');
+                return;
+            }
+
+            
+            if (senha !== confirmaSenha) {
+                alert('As senhas não coincidem.');
+                return;
+            }
+
+            
+            var usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+            var usuarioExistente = usuarios.find(usuario => usuario.email === email);
+
+            if (usuarioExistente) {
+                alert('Este email já está registrado.');
+            } else {
+                usuarios.push({ nome: nome, email: email, senha: senha });
+                localStorage.setItem('usuarios', JSON.stringify(usuarios));
+                alert('Registrado com sucesso!');
+                location.href = "../usuarios/login.html"; 
+            }
+        });
+    </script>
+</body>
+</html>
